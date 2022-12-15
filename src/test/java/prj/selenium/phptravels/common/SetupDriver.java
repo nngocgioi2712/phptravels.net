@@ -9,7 +9,7 @@ public class SetupDriver {
   private WebDriver driver;
 
   public void setDriver(){
-    switch (PropertiesHelper.getValue("brower").toLowerCase(Locale.ROOT)) {
+    switch (PropertiesHelper.getValue("browser").toLowerCase(Locale.ROOT)) {
       case "chrome":
         driver = initChromeDriver();
         break;
@@ -17,6 +17,9 @@ public class SetupDriver {
         System.out.println("Browser " + PropertiesHelper.getValue("browser") + "is invalid. Launching Chrome ...");
         driver = initChromeDriver();
     }
+  }
+  public WebDriver getDriver(){
+    return this.driver;
   }
   public WebDriver initChromeDriver() {
     System.setProperty("webdriver.chrome.driver", "./driver_chrome/chromedriver.exe");
